@@ -89,6 +89,10 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -110,6 +114,7 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mapkick-rb (0.1.5)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -224,8 +229,10 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dotenv-rails (~> 2.1, >= 2.1.1)
   jbuilder
   jsbundling-rails
+  mapkick-rb
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.6)
