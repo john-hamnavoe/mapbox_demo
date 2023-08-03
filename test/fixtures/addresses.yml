@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  attention: MyString
+  line_1: MyString
+  line_2: MyString
+  line_3: MyString
+  line_4: MyString
+  city: MyString
+  region: MyString
+  country: MyString
+  postal_code: MyString
+  latitude: 9.99
+  longitude: 9.99
+  full_address: MyString
+
+two:
+  customer: two
+  attention: MyString
+  line_1: MyString
+  line_2: MyString
+  line_3: MyString
+  line_4: MyString
+  city: MyString
+  region: MyString
+  country: MyString
+  postal_code: MyString
+  latitude: 9.99
+  longitude: 9.99
+  full_address: MyString

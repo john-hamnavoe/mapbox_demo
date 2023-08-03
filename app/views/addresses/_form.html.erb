@@ -1,0 +1,82 @@
+<%= form_with(model: address) do |form| %>
+  <% if address.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+        <% address.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :customer_id, style: "display: block" %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div>
+    <%= form.label :attention, style: "display: block" %>
+    <%= form.text_field :attention %>
+  </div>
+
+  <div>
+    <%= form.label :line_1, style: "display: block" %>
+    <%= form.text_field :line_1 %>
+  </div>
+
+  <div>
+    <%= form.label :line_2, style: "display: block" %>
+    <%= form.text_field :line_2 %>
+  </div>
+
+  <div>
+    <%= form.label :line_3, style: "display: block" %>
+    <%= form.text_field :line_3 %>
+  </div>
+
+  <div>
+    <%= form.label :line_4, style: "display: block" %>
+    <%= form.text_field :line_4 %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :region, style: "display: block" %>
+    <%= form.text_field :region %>
+  </div>
+
+  <div>
+    <%= form.label :country, style: "display: block" %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div>
+    <%= form.label :postal_code, style: "display: block" %>
+    <%= form.text_field :postal_code %>
+  </div>
+
+  <div>
+    <%= form.label :latitude, style: "display: block" %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div>
+    <%= form.label :longitude, style: "display: block" %>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <div>
+    <%= form.label :full_address, style: "display: block" %>
+    <%= form.text_field :full_address %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

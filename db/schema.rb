@@ -10,8 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_093248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "addresses", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.string "attention"
+    t.string "line_1"
+    t.string "line_2"
+    t.string "line_3"
+    t.string "line_4"
+    t.string "city"
+    t.string "region"
+    t.string "country"
+    t.string "postal_code"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "full_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_addresses_on_customer_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "addresses", "customers"
 end

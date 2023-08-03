@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head class="h-full bg-gray-100">
     <title>MapboxDemo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -10,7 +10,32 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="h-full">
+    <div class="min-h-full">
+      <%= render "shared/navigation" %>
+      <div class="py-10">
+        <header>
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Customers</h1>
+          </div>
+        </header>
+        <main>
+          <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <%= yield %>
+          </div>
+        </main>
+      </div>
+    </div>    
   </body>
 </html>
+
+
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+
