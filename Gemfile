@@ -18,10 +18,10 @@ gem "puma", "~> 5.0"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# Hotwire"s SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# Hotwire"s modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
@@ -40,7 +40,7 @@ gem "redis", "~> 4.0"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -53,7 +53,8 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "dotenv-rails", "~> 2.1", ">= 2.1.1"
 end
 
 group :development do
@@ -74,4 +75,5 @@ group :test do
   gem "webdrivers"
 end
 
+gem "mapkick-rb"
 gem "view_component"
