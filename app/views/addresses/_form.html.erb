@@ -1,18 +1,10 @@
 
-<div data-controller="map-search">
+
   <div class="grid grid-cols-2 gap-4 w-full">
     <%= form_with(model: address) do |form| %>
-      <% if address.errors.any? %>
-        <div style="color: red">
-          <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
-
-          <ul>
-            <% address.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <% hide_find_address_on_edit_css = form.object.persisted? ? "hidden" : "" %>
+      <% hide_secondary_inputs_on_new_css = form.object.persisted? ? "" : "hidden" %>
+      <%= render "form_errors", address: address %>
       <div>
         <%= form.label :customer_id, style: "display: block" %>
         <%= form.select :customer_id,Customer.all.map { |c| [c.name, c.id] }, class:"w-full"  %>
@@ -23,70 +15,17 @@
         <%= form.text_field :attention, class:"w-full" %>
       </div>
 
-      <div>
+      <div class="<%= hide_find_address_on_edit_css %>">
         <%= form.label :find_address, style: "display: block" %>
         <%= form.text_field :find_address, class:"w-full", placeholder: "Start typing your address, e.g. 123 Main...", autocomplete:"address-line1"  %>
       </div>
 
-      <div data-map-search-target="manualEntry">
+      <div data-map-search-target="manualEntry" class="<%= hide_find_address_on_edit_css %>">
         <button class="text-gray-900 underline text-blue-600" data-action="click->map-search#openManualEntry">Enter an address manually</button>
       </div>
 
-      <div data-map-search-target="secondaryInputs" class="grid grid-cols-1 hidden">
-        <div>
-          <%= form.label :line_1, style: "display: block" %>
-          <%= form.text_field :line_1, class:"w-full", placeholder: "Start typing your address, e.g. 123 Main...", data: { "map-search-target": "line1Field" }  %>
-        </div>
-
-        <div>
-          <%= form.label :line_2, style: "display: block" %>
-          <%= form.text_field :line_2, class:"w-full",  autocomplete: "address-line2"  %>
-        </div>
-
-        <div>
-          <%= form.label :line_3, style: "display: block" %>
-          <%= form.text_field :line_3, class:"w-full",  autocomplete: "address-level3"  %>
-        </div>
-
-        <div>
-          <%= form.label :line_4, style: "display: block" %>
-          <%= form.text_field :line_4, class:"w-full"  %>
-        </div>
-
-        <div>
-          <%= form.label :city, style: "display: block" %>
-          <%= form.text_field :city, class:"w-full",  autocomplete: "address-level2"  %>
-        </div>
-
-        <div>
-          <%= form.label :region, style: "display: block" %>
-          <%= form.text_field :region, class:"w-full",  autocomplete: "address-level1"  %>
-        </div>
-
-        <div>
-          <%= form.label :country, style: "display: block" %>
-          <%= form.text_field :country, class:"w-full",  autocomplete: "country-name"  %>
-        </div>
-
-        <div>
-          <%= form.label :postal_code, style: "display: block" %>
-          <%= form.text_field :postal_code, class:"w-full",  autocomplete: "postal-code"  %>
-        </div>
-
-        <div>
-          <%= form.label :latitude, style: "display: block" %>
-          <%= form.text_field :latitude, class:"w-full", data: { "map-search-target": "latitudeField" }  %>
-        </div>
-
-        <div>
-          <%= form.label :longitude, style: "display: block" %>
-          <%= form.text_field :longitude, class:"w-full", data: { "map-search-target": "longitudeField" }  %>
-        </div>
-
-        <div>
-          <%= form.label :full_address, style: "display: block" %>
-          <%= form.text_field :full_address, class:"w-full"  %>
-        </div>
+      <div data-map-search-target="secondaryInputs" class="grid grid-cols-1 <%= hide_secondary_inputs_on_new_css %>">
+        <%= render "address_form_fields", form: form %>
       </div>
       <div>
         <%= form.submit %>
@@ -94,7 +33,10 @@
     <% end %>
     <div class="">
     <!-- Visual confirmation map -->
-      <div data-map-search-target="minimapContainer" id="minimap-container" class="none w-full h-96 mb-6"></div>
+      <% if address.persisted? %>
+        <div id="map" class="none w-full h-96 mb-6"></div>
+      <% else %>
+        <div data-map-search-target="minimapContainer" id="minimap-container" class="none w-full h-96 mb-6"></div>
+      <% end %>
     </div>    
   </div>
-</div>

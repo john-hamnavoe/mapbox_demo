@@ -1,6 +1,8 @@
 <h1>Editing address</h1>
 
-<%= render "form", address: @address %>
+<div data-controller="map-drag" data-map-drag-longitude-value="<%= @address.longitude || 0 %>", data-map-drag-latitude-value="<%= @address.latitude || 0 %>">
+  <%= render "form", address: @address %>
+</div>
 
 <br>
 
