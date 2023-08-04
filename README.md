@@ -1,5 +1,8 @@
 # Introduction 
-This is Rails 7 app that is a demo of using MapBox for address autofill and geocoding. It also includes a simple demo of MapKick to show a map.
+This is Rails 7 app that is a demo of using MapBox for address autofill and geocoding.
+
+It also includes a simple demo of MapKick to show a map.
+
 
 ## Getting Started
 This is a Rails 7 app, I use Ruby 3.1.2 currently. For background the app was created with the following command `rails new mapbox_demo -j esbuild --css tailwind -d postgresql`. 
@@ -63,7 +66,13 @@ If you look at addresses/new you can see it in action working on a real rails fo
 
 ### Issues/Notes
 The MapBox JS added `address_search` to the name of the control it used to search which was line 1 on the address record. This means that when the form was submitted the controller didn't get line_1 as a parameter but an invalid parameter that it rejected. So had to change it slightly from the MapBox demo so that there is an input box called find_address this is one MapBox takes over, and a normal one for line_1, it did mean the stimulus controller has to manually update line_1 in a similar way to the lat/long boxes. 
-_**Overall this method seems to work pretty well for address autofill. There is some work to do regards the edit flow on a form to get that right. **_
+_**Overall this method seems to work pretty well for address autofill. **_
+
+### Editing Addresses
+When you run the demo and edit and Address you entered you will see that the autofill is switched off. 
+It is replaced with a map and option to drag a marker to update the lat/long. This is based on mapbox example [here](https://docs.mapbox.com/mapbox-gl-js/example/drag-a-marker/).
+
+It requires a stimulus controller `map-drag-controller` and a div with id "map" on the page. We reference the appropriate stimulus controllers on the new and edit pages.
 
 ## MapKick Demo
 

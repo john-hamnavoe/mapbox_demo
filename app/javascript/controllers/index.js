@@ -10,5 +10,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import MapDragController from "./map_drag_controller"
+application.register("map-drag", MapDragController)
+
 import MapSearchController from "./map_search_controller"
 application.register("map-search", MapSearchController)
