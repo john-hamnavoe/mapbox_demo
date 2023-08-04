@@ -1,1 +1,32 @@
-<%= js_map [{latitude: 37.7829, longitude: -122.4190}] %>
+<% content_for :title, "Maps" %>
+<div class="flex flex-col divide-y space-y-2">
+  <div>
+    <h1 class="text-lg text-green-700">MapKick Demo</h1>
+    <%= js_map [{latitude: 37.7829, longitude: -122.4190}] %>
+  </div>
+
+  <div>
+    <h1 class="text-lg text-blue-700">Geogoder Demo</h1>
+    <div data-controller="map">
+      <div class="grid grid-cols-2">
+        <div id="map" class="w-full h-96 mb-6"></div>
+        <div id="geocoder" class="geocoder"></div>
+      </div>
+    </div>
+    <form class="flex flex-col">
+        <input type="text" name="address[attention]" id="address_attention">
+        <div class="grid grid-cols-2 gap-2">
+          <input type="text" name="address[latitude]" id="address_latitude">
+          <input type="text" name="address[longitude]" id="address_longitude">
+        </div>
+    </form>
+  </div>
+
+  <div>
+    <h1 class="text-lg text-indigo-700">Search Demo</h1> 
+    <div data-controller="map-search">
+      <%= render "search_form" %>
+    </div>
+  </div>
+</div>
+    
