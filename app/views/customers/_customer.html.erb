@@ -1,7 +1,8 @@
-<div id="<%= dom_id customer %>">
-  <p>
-    <strong>Name:</strong>
+<tr>
+  <td>
     <%= customer.name %>
-  </p>
-
-</div>
+  </td>
+  <td>
+    <%= link_to "Edit", edit_customer_path(customer) %> 
+  </td>
+</tr>

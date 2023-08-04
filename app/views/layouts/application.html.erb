@@ -2,10 +2,12 @@
 <html>
   <head class="h-full bg-gray-100">
     <title>MapboxDemo</title>
+    <%= tag :meta, name: :mapbox_access_token, content: ENV["MAPBOX_ACCESS_TOKEN"] %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -16,7 +18,7 @@
       <div class="py-10">
         <header>
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Customers</h1>
+            <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900"><%= yield :title if content_for?(:title) %></h1>
           </div>
         </header>
         <main>

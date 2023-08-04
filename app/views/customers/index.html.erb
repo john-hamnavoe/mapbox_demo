@@ -1,14 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Customers</h1>
+<% content_for :title, "Customers" %>
 
 <div id="customers">
-  <% @customers.each do |customer| %>
-    <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
-  <% end %>
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>  
+        <th class="text-left">Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <%= render customer %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New customer", new_customer_path %>
+<hr>
+<%= render PrimaryLinkButtonComponent.new(path: new_customer_path, title: "New customer", small: true, button_classes: "mt-4 w-64") %>

@@ -1,67 +1,55 @@
-<div id="<%= dom_id address %>">
-  <p>
-    <strong>Customer:</strong>
-    <%= address.customer_id %>
-  </p>
 
-  <p>
-    <strong>Attention:</strong>
-    <%= address.attention %>
-  </p>
+  <tr>
+    <td>
+      <%= address.customer.name %>
+    </td>
 
-  <p>
-    <strong>Line 1:</strong>
-    <%= address.line_1 %>
-  </p>
+    <td>
+      <%= address.attention %>
+    </td>
 
-  <p>
-    <strong>Line 2:</strong>
-    <%= address.line_2 %>
-  </p>
+    <td>
+      <%= address.line_1 %>
+    </td>
 
-  <p>
-    <strong>Line 3:</strong>
-    <%= address.line_3 %>
-  </p>
+    <td>
+      <%= address.line_2 %>
+    </td>
 
-  <p>
-    <strong>Line 4:</strong>
-    <%= address.line_4 %>
-  </p>
+    <td>
+      <%= address.line_3 %>
+    </td>
 
-  <p>
-    <strong>City:</strong>
-    <%= address.city %>
-  </p>
+    <td>
+      <%= address.line_4 %>
+    </td>
 
-  <p>
-    <strong>Region:</strong>
-    <%= address.region %>
-  </p>
+    <td>
+      <%= address.city %>
+    </td>
 
-  <p>
-    <strong>Country:</strong>
-    <%= address.country %>
-  </p>
+    <td>
+      <%= address.region %>
+    </td>
 
-  <p>
-    <strong>Postal code:</strong>
-    <%= address.postal_code %>
-  </p>
+    <td>
+      <%= address.country %>
+    </td>
 
-  <p>
-    <strong>Latitude:</strong>
-    <%= address.latitude %>
-  </p>
+    <td>
+      <%= address.postal_code %>
+    </td>
 
-  <p>
-    <strong>Longitude:</strong>
-    <%= address.longitude %>
-  </p>
+    <td>
+      <%= address.latitude %>
+    </td>
 
-  <p>
-    <strong>Full address:</strong>
-    <%= address.full_address %>
-  </p>
+    <td>
+      <%= address.longitude %>
+    </td>
 
-</div>
+    <td>
+      <%= link_to "Edit", edit_address_path(address) %> 
+    </td>
+
+  </tr>
